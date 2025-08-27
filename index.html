@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D Endless Runner – Turbo Mini Game</title>
+  <link rel="stylesheet" href="main.css" />
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <style>html,body{background:#000}</style>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.161.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.161.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="ui">
+    <div class="topbar">
+      <div class="logo">🚀 Turbo Runner</div>
+      <div class="stats">
+        <span id="score">Score: 0</span>
+        <span id="coins">Coins: 0</span>
+        <span id="mult">x1</span>
+      </div>
+      <div class="buttons">
+        <button id="btnPause" title="Pause/Resume (P)">⏯</button>
+        <button id="btnSettings" title="Settings">⚙️</button>
+        <button id="btnHelp" title="Help">❔</button>
+      </div>
+    </div>
+    <div class="bottom-left">
+      <div class="powerups">
+        <span id="puShield" class="pu">🛡</span>
+        <span id="puMagnet" class="pu">🧲</span>
+        <span id="puSlow" class="pu">🐢</span>
+      </div>
+    </div>
+    <div id="overlay" class="overlay hidden">
+      <div class="panel" id="panelMain">
+        <h1>Turbo Runner</h1>
+        <p>Swipe / Arrow keys to move, Space to jump, P to pause.</p>
+        <button id="btnStart">Start</button>
+      </div>
+      <div class="panel hidden" id="panelSettings">
+        <h2>Settings</h2>
+        <label><input type="checkbox" id="chkGfx" checked/> High Graphics</label>
+        <label><input type="checkbox" id="chkShadows" checked/> Shadows</label>
+        <label><input type="checkbox" id="chkAudio" checked/> Audio</label>
+        <label>Sensitivity <input type="range" id="rngSens" min="0.5" max="2" value="1" step="0.1"/></label>
+        <button class="secondary" id="btnBackFromSettings">Back</button>
+      </div>
+      <div class="panel hidden" id="panelHelp">
+        <h2>How to Play</h2>
+        <ul>
+          <li>Move: ← → or swipe</li>
+          <li>Jump: Space</li>
+          <li>Collect coins for points.</li>
+          <li>Power-ups: Shield (invincible), Magnet (pull coins), Slow (slow time).</li>
+          <li>Don’t hit obstacles. Good luck!</li>
+        </ul>
+        <button class="secondary" id="btnBackFromHelp">Back</button>
+      </div>
+      <div class="panel hidden" id="panelGameOver">
+        <h2>Game Over</h2>
+        <p id="finalScore"></p>
+        <p id="bestScore"></p>
+        <button id="btnRestart">Restart</button>
+      </div>
+    </div>
+    <div class="mobile-ctrls">
+      <button id="btnLeft">⬅️</button>
+      <button id="btnJump">⤴️</button>
+      <button id="btnRight">➡️</button>
+    </div>
+  </div>
+  <canvas id="c"></canvas>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
